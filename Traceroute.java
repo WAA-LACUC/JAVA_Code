@@ -2,34 +2,34 @@ package test1;
 import java.io.*;
 import java.net.*;
 import java.lang.*;
-
+//ìƒì› ê³ ìƒí–ˆì–´!
 public class Traceroute {
 	public static void main(String args[]) {
 		BufferedReader in;
 		int count=0;
-		String iptime; //ÃÖÁ¾ gatwayÀúÀå º¯¼ö
+		String iptime; //ìµœì¢… gatwayì €ì¥ ë³€ìˆ˜
 		try {
 			Runtime r = Runtime.getRuntime();
-			Process p = r.exec("tracert www.google.com"); //°æ·Î ±¸±Û·Î ÀÓÀÇ·Î ¼³Á¤
+			Process p = r.exec("tracert www.google.com"); //ê²½ë¡œ êµ¬ê¸€ë¡œ ì„ì˜ë¡œ ì„¤ì •
 			
 			in = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			
-			String line; //lineº¯¼ö¿¡ °æ·ÎÀúÀåÈÄ Ãâ·Â
+			String line; //lineë³€ìˆ˜ì— ê²½ë¡œì €ì¥í›„ ì¶œë ¥
 			
 			if(p==null)
 				System.out.println("could not connect");
 			
-			while((line=in.readLine())!=null) { //trace router(°æ·Î°¡ ±¸±Û·ÎÇØ¼­ ) Å½»ö ¹İº¹¹®
+			while((line=in.readLine())!=null) { //trace router(ê²½ë¡œê°€ êµ¬ê¸€ë¡œí•´ì„œ ) íƒìƒ‰ ë°˜ë³µë¬¸
 				
-				System.out.println(line); //°æ·Î Ãâ·Â
+				System.out.println(line); //ê²½ë¡œ ì¶œë ¥
 				//System.out.println(count);
 				count++;
-				if(count==5) //count°ª ¼³Á¤ÇØ¼­ Ã¹¹øÂ° trace°ª(gateway)¸¸ ¾ò°í Å»Ãâ 
+				if(count==5) //countê°’ ì„¤ì •í•´ì„œ ì²«ë²ˆì§¸ traceê°’(gateway)ë§Œ ì–»ê³  íƒˆì¶œ 
 					break;
 			}
-			System.out.println("µÎ¹øÂ°"+line);
-			iptime = line.substring(line.length()-14,line.length()); //iptimeº¯¼ö¿¡ trace°ª À» Àß¶ó¼­ ¿øÇÏ´Â gateway°ª¸¸ ¾ò¾î¼­ ÀúÀå
-			System.out.println("°á°ú°ª "+iptime); //iptime Ãâ·Â
+			System.out.println("ë‘ë²ˆì§¸"+line);
+			iptime = line.substring(line.length()-14,line.length()); //iptimeë³€ìˆ˜ì— traceê°’ ì„ ì˜ë¼ì„œ ì›í•˜ëŠ” gatewayê°’ë§Œ ì–»ì–´ì„œ ì €ì¥
+			System.out.println("ê²°ê³¼ê°’ "+iptime); //iptime ì¶œë ¥
 		}catch(IOException e) {
 			System.out.println(e.toString());
 		}
