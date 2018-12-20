@@ -1,6 +1,6 @@
-import java.io.*;
-import java.net.*;
-import java.lang.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 //상원 고생했어!
 public class TraceRoute {
